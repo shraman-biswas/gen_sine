@@ -1,7 +1,7 @@
 Generate sine wave
 ==================
 
-Generates and displays an animated sine wave.
+A C program that generates and displays an animated sine wave.
 Frequency, amplitude, display width, and animation time delay can be specified by command line arguments.
 
 usage: ./main frequency amplitude width delay
