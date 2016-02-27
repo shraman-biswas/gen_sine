@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 		case 5:
 			tmp = atoi(argv[4]);
 			delay = (tmp >= 1) && (tmp <= 100) ?
-					tmp : delay; 
+					tmp : delay;
 		case 4:
 			tmp = atoi(argv[3]);
 			width = (tmp >= 50) && (tmp <= 77) ?
@@ -50,7 +50,7 @@ static void gen_sine(
 			y = (A / 2 * sin(x)) + (width / 2);		/* generate sine wave */
 			memset(disp, ' ', width + 1);
 			disp[(int)y] = '*';
-			printf("[%s]\n", disp);					/* display sine wave */
+			printf("[%s]\n", disp);				/* display sine wave */
 			fflush(stdout);
 			usleep(delay * 1000);
 		}
