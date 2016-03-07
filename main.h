@@ -7,10 +7,4 @@
 #include <string.h>
 #include <unistd.h>
 
-static void gen_sine(
-	const float freq,
-	const float amp,
-	const int len,
-	const int delay);
-
 #endif

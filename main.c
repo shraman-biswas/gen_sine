@@ -1,5 +1,13 @@
 #include "main.h"
 
+/* function prototypes */
+static void gen_sine(
+	const float freq,
+	const float amp,
+	const int width,
+	const int delay
+);
+
 int main(int argc, char **argv)
 {
 	int width=77, delay=20;
@@ -42,16 +50,28 @@ static void gen_sine(
 	char *disp=NULL;
 	float x, y, d;
 	A = amp * width;
-	disp = (char *)calloc(sizeof(char), width + 1);	/* create display memory */
-	memset(disp, ' ', width + 1);					/* clear display */
-	d = 2 * M_PI * freq * delay / 1000;				/* calculate time step from delay */
+
+	/* create display line */
+	disp = (char *)calloc(sizeof(char), width + 1);
+
+	/* clear display line */
+	memset(disp, ' ', width + 1);
+
+	/* calculate time step delay */
+	d = 2 * M_PI * freq * delay / 1000;
 	for (;;) {
 		for (x=0; x < 2*M_PI; x+=d) {
-			y = (A / 2 * sin(x)) + (width / 2);		/* generate sine wave */
+
+			/* generate sine wave */
+			y = (A / 2 * sin(x)) + (width / 2);
 			memset(disp, ' ', width + 1);
 			disp[(int)y] = '*';
-			printf("[%s]\n", disp);				/* display sine wave */
+
+			/* show display line  */
+			printf("[%s]\n", disp);
 			fflush(stdout);
+
+			/* pause for time step */
 			usleep(delay * 1000);
 		}
 	}
